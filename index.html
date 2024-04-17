@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+ <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<div class="container-fluid1 bg-2 text-center" id="Home" style="background-repeat: repeat;background-blend-mode: soft-light;background-size:cover;background-clip: border-box;background-image: url(../static/img/2.jpg)">
+    <br>
+    <br>
+    <h2 style="font-size: 50px; font-weight: bold; color:dark; text-align:center;text-underline-position: auto;">Air Quality Index Prediction</h2>
+    <br>
+<h3> AIR QUALITY</h3>
+
+
+</p>
+  <div style="display: flex; justify-content: center; align-items: center; ">
+<img src="" height="100%">
+</div>
+
+
+
+<h3> In this study, we tried to predict Air Quality of Different Cities using 3 different algorithm:</h3>
+1.Random Forest Regression<br>     
+2.Decision Tree Regression  <br>   
+3.Multiple Linear Regression<br>    
+
+<br><br><hr>
+
+<h4> we use random forest regression because the accuracy of random forest regression is highest (94%) in order to predict lung cancer.</h4><br>
+     <br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+        <table>
+                <tr>
+                        <td>
+                                1. City(Amravati):1,(Amritsar):2,(Chandigarh):3,(Delhi):4
+                                ,(Gurugram):5,(Hyderabad):6,(Kolkata):7,(Patna):8
+                                ,(Visakhapatnam):9
+
+                                </td>
+                                <td>
+                                        <input type="number" name="City" placeholder="City" required="required" /><br>
+                                </td>
+                </tr>
+
+                <tr>
+                        <td>
+                                2. PM2.5:
+                                </td>
+                                <td>
+                                        <input type="number" name="PM2.5" placeholder="PM2.5" required="required">
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+
+                                3. PM 10:
+                                </td>
+                                <td>
+                                        
+                                      <input type="number" name="PM 10" placeholder="PM 10" required="required">        
+                                </td>
+                </tr>
+                <tr>
+                       
+                        <td>
+
+                                4. NO:
+                                
+                                </td>
+                                <td>
+                                        <input type="number" name="NO" placeholder="NO" required="required">
+                                
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                5. NO2 :
+                                </td>
+                                <td>
+                                        <input type="number" name="NO2" placeholder="NO2" required="required"><br><br>
+                                
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                6. NOx :
+                                </td>
+                                <td>
+                                        <input type="number" name="NOx" placeholder="NOx" required="required"><br><br>
+                                
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                7. NH3:
+                                
+                                </td>
+                                <td>
+                                        <input type="number" name="NH3" placeholder="NH3" required="required"><br><br>
+                                
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                8. CO:
+                                
+                                
+                                </td>
+                                <td>
+                                        <input type="number" name="CO" placeholder="CO" required="required"><br><br>
+                                
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                9. SO2 :
+                                
+                                </td>
+                                
+      
+                                <td>
+                                        
+
+	                 <input type="number" name="SO2" placeholder="SO2" required="required"><br><br>
+                                
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                10. O3 :
+                                
+                                </td>
+                                <td>
+                                        <input type="number" name="O3" placeholder="O3" required="required"><br><br>    
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                11. Benzene:
+                                
+                                </td>
+                                <td>
+
+                                        <input type="number" name="Benzene" placeholder="Benzene" required="required"><br><br>
+                                        
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                              12.  Toluene:
+                                
+                                </td>
+                                <td>
+                                        <input type="number" name="Toluene" placeholder="Toluene" required="required"><br><br>
+                                        
+                                </td>
+                </tr>
+                <tr>
+                        <td>
+                                
+                                13. Xylene :
+                                
+                                </td>
+                                <td>
+                                        <input type="number" name="Xylene" placeholder="Xylene" required="required"><br><br>    
+                                </td>
+                </tr>
+                               
+                         
+                
+                <tr>
+                        <td>
+                                
+                                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                                <button type="Reset" class="btn btn-primary btn-block btn-large mt-2">Reset</button>
+                                
+                                
+                        </td>
+                 </tr>
+
+
+    	
+        
+        </table>
+
+
+     </form>
+
+       
+            
+
+
+   <br>
+   <br>
+   {{ prediction_text }}
+	<button type="Reset" class="btn btn-primary btn-block btn-large" onclick="history.back()">Go Back</button>
+
+ 
+</div> 
+
+
+
+</body>
+</html>
+
+
+
+    
